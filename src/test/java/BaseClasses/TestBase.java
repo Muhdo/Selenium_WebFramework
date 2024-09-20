@@ -15,7 +15,7 @@ import java.util.Properties;
 
 public class TestBase {
 
-    public WebDriver driver;
+    public static WebDriver driver;
     String browser;
     String file_path = "src/test/java/Utils/testData.properties";
     FileInputStream fis;

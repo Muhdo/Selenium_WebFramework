@@ -17,15 +17,18 @@ public class Trial extends TestBase {
     @Test(priority = 1, description = "Validate user is able to access the site")
     public void TC_01(){
         initializer();
-        Assert.assertEquals(testData.getProperty("url"), "https://www.saucedemo.com/");
+        Assert.assertEquals(testData.getProperty("url"), "https://www.saucedemo.coms/");
     }
 
 
     @Test(priority = 2, description = "Validate that user cannot login with invalid details")
     public void TC_02 (){
-        loginPage.inputUsername("username");
-        loginPage.inputPassword("password");
+        loginPage.inputUsername(testData.getProperty("username"));
+        loginPage.inputPassword(testData.getProperty("password"));
         loginPage.clickLoginBtn();
+        sleep(5);
     }
+
+    //note to self, checkout to a new branch, maybe testng part and work there, when that works, i can then merge all the codes
 
 }
