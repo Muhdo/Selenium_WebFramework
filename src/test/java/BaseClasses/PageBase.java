@@ -39,7 +39,9 @@ public class PageBase {
                 element.click();
                 break;
             } catch (StaleElementReferenceException e) {
-                PageFactory.initElements(driver, this);
+                //only re initializing elements here to handle stale element exception
+                //only re-initializing cos of stale elements, so can remove them, the one done in the constructor is enough
+                PageFactory.initElements(driver, this); //Re-initializes the elements on the page, used because I am using page factory annotations
                 attempt++;
             }
 
